@@ -85,3 +85,32 @@ python src/main_exec.py
 
 **Erro: "Arquivo não encontrado"**
 - Verifique os caminhos no arquivo `.env`
+
+
+## Estatistica Discreta
+
+### Variáveis:
+
+##### - Qualitativas
+    - Nominal: Estado(UF) e Tipo de Língua Estrangeira
+    - Ordinal: Nível de escolaridade Pai/Mãe e Renda Familiar
+
+##### - Quantitativas
+    - Discreta: Idade e Número de pessoas na Residência
+    - Contínua: Notas das provas e Tempo de permanência
+
+### Análises:
+
+    [ ] Tabela de Frequência
+    [ ] Histograma
+    [ ] Média, Mediana e Moda 
+    [ ] Desvio padrão e Variância
+    [ ] Amplitude e Distância Di-quartil
+    [ ] Quartis e Percentis
+    [ ] Boxplot
+    [ ] Gráficos de Barras/Pizza
+    [ ] Diagrama de Dispersão
+    [ ] Tabela de Contingência
+
+
+
