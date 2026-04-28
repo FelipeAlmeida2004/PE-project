@@ -1,0 +1,6 @@
+*database/
+__pycache__/
+settings.json
+venv/
+.env
+poetry.lock

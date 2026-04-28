@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "pe-project"
+version = "0.1.0"
+description = ""
+authors = ["felipe.almeida1 <felipe.almeida@catijr.com.br>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^3.0.2"
+openpyxl = "^3.1"
+dotenv = "^0.9.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
