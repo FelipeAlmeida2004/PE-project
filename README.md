@@ -101,7 +101,8 @@ python src/main_exec.py
 
 ### Análises:
 
-    [ ] Tabela de Frequência
+    [✅] Tabela de Frequência(Renda Familiar -> Variável Qualitativa Ordinal)
+    [ ] Tabela de Frequência(Notas -> Variável Quantitativa Contínua)
     [ ] Histograma
     [ ] Média, Mediana e Moda 
     [ ] Desvio padrão e Variância
