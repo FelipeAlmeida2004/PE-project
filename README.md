@@ -102,16 +102,16 @@ python src/main_exec.py
 ### Análises:
 
     [✅] Tabela de Frequência(Renda Familiar -> Variável Qualitativa Ordinal)
-    [ ] Tabela de Frequência(Notas -> Variável Quantitativa Contínua)
-    [ ] Histograma
-    [ ] Média, Mediana e Moda 
-    [ ] Desvio padrão e Variância
-    [ ] Amplitude e Distância Di-quartil
-    [ ] Quartis e Percentis
-    [ ] Boxplot
-    [ ] Gráficos de Barras/Pizza
-    [ ] Diagrama de Dispersão
-    [ ] Tabela de Contingência
+    [✅] Tabela de Frequência(Notas -> Variável Quantitativa Contínua)
+    [✅] Histograma
+    [✅] Média, Mediana e Moda 
+    [✅] Desvio padrão e Variância
+    [✅] Amplitude e Distância Di-quartil
+    [✅] Quartis e Percentis
+    [✅] Boxplot
+    [✅] Gráficos de Barras/Pizza
+    [✅] Diagrama de Dispersão
+    [✅] Tabela de Contingência
 
 
 
