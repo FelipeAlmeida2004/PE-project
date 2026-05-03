@@ -68,7 +68,7 @@ class FrequencyTable:
                 )
 
         df_freq = pd.DataFrame(freq_data)
-        df_freq.to_csv(output_path, sep=";", encoding="latin-1", index=False)
+        df_freq.to_csv(output_path, sep=";", encoding="utf-8-sig", index=False)
 
         return output_path
 
