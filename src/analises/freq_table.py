@@ -9,8 +9,9 @@ matplotlib.use("Agg")  # Use backend que não requer display
 
 class FrequencyTable:
 
-    def __init__(self, path: str, fields: Union[str, List[str]]):
+    def __init__(self, path: str, fields: Union[str, List[str]], top_n: int = None):
         self.df = pd.read_csv(path, sep=";", encoding="latin-1")
+        self.top_n = top_n
 
         if isinstance(fields, str):
             self.fields = [fields]
@@ -33,7 +34,10 @@ class FrequencyTable:
     def save_frequency_to_csv(self, output_path: str = None) -> str:
         if output_path is None:
             field_name = "_".join(self.fields)
-            output_path = f"src/database/2024/ANALISES/frequencia_{field_name}.csv"
+            suffix = f"_top{self.top_n}" if self.top_n else ""
+            output_path = (
+                f"src/database/2024/ANALISES/frequencia_{field_name}{suffix}.csv"
+            )
 
         Path(output_path).parent.mkdir(parents=True, exist_ok=True)
 
@@ -43,6 +47,11 @@ class FrequencyTable:
             field = self.fields[0]
             freq = self.get_frequency()
             perc = self.get_frequency_percentage()
+
+            # Aplicar top_n se definido
+            if self.top_n:
+                freq = freq.head(self.top_n)
+                perc = perc.head(self.top_n)
 
             for value, count in freq.items():
                 freq_data.append(
@@ -56,6 +65,11 @@ class FrequencyTable:
         else:
             freq = self.get_frequency()
             perc = self.get_frequency_percentage()
+
+            # Aplicar top_n se definido
+            if self.top_n:
+                freq = freq.head(self.top_n)
+                perc = perc.head(self.top_n)
 
             for value, count in freq.items():
                 freq_data.append(
@@ -78,13 +92,18 @@ class FrequencyTable:
 
         if output_path is None:
             field_name = "_".join(self.fields)
+            suffix = f"_top{self.top_n}" if self.top_n else ""
             output_path = (
-                f"src/database/2024/ANALISES/plot_{field_name}_{plot_type}.png"
+                f"src/database/2024/ANALISES/plot_{field_name}{suffix}_{plot_type}.png"
             )
 
         Path(output_path).parent.mkdir(parents=True, exist_ok=True)
 
         freq_percentage = self.get_frequency_percentage()
+
+        # Aplicar top_n se definido
+        if self.top_n:
+            freq_percentage = freq_percentage.head(self.top_n)
 
         fig, ax = plt.subplots(figsize=figsize)
 

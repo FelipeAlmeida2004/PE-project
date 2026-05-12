@@ -10,30 +10,61 @@ from analises.tabela_contingencia import TabelaContingencia
 def main():
 
     # =================== CONFIGURAÇÕES =====================
-    path_dict   = Config.PATH_DICT
-    path_part   = Config.DATA[0]   # CSV de participantes
-    path_result = Config.DATA[1]   # CSV de resultados/notas
+    path_dict = Config.PATH_DICT
+    path_part = Config.DATA[0]  # CSV de participantes
+    path_result = Config.DATA[1]  # CSV de resultados/notas
 
     participante = Participante(path_dict, Config.SHEET_NAME[0])
-    notas        = Notas(path_dict, Config.SHEET_NAME[1])
+    notas = Notas(path_dict, Config.SHEET_NAME[1])
 
-    list_part   = participante.save_copy_fields()
+    list_part = participante.save_copy_fields()
     list_result = notas.save_copy_fields()
 
     # Campos de notas (ajuste os índices conforme seu dicionário)
-    NOTAS_FIELDS = ["NU_NOTA_CN", "NU_NOTA_CH", "NU_NOTA_LC", "NU_NOTA_MT", "NU_NOTA_REDACAO"]
+    NOTAS_FIELDS = [
+        "NU_NOTA_CN",
+        "NU_NOTA_CH",
+        "NU_NOTA_LC",
+        "NU_NOTA_MT",
+        "NU_NOTA_REDACAO",
+    ]
 
     # Campos qualitativos de participantes
-    CAMPO_UF          = "SG_UF_PROVA"       # Estado (nominal)       # Língua estrangeira (nominal)
-    CAMPO_RENDA       = "Q006"               # Renda familiar (ordinal)
-    CAMPO_ESC_PAI     = "Q001"               # Escolaridade do pai (ordinal)
-    CAMPO_ESC_MAE     = "Q002"               # Escolaridade da mãe (ordinal)
-    CAMPO_SEXO        = "TP_SEXO"
+    CAMPO_UF = "SG_UF_PROVA"  # Estado (nominal)       # Língua estrangeira (nominal)
+    CAMPO_RENDA = "Q006"  # Renda familiar (ordinal)
+    CAMPO_ESC_PAI = "Q001"  # Escolaridade do pai (ordinal)
+    CAMPO_ESC_MAE = "Q002"  # Escolaridade da mãe (ordinal)
+    CAMPO_SEXO = "TP_SEXO"
 
     # =================== [✅] FREQ. QUALITATIVA (Renda) =====================
     print("\n>>> [1/7] Tabela de Frequência – Renda Familiar")
     freq_renda = FrequencyTable(path_part, CAMPO_RENDA)
     freq_renda.execute(plot_type="bar")
+
+    # =================== [✅] FREQ. QUALITATIVA (Escolaridade do Pai) =====================
+    print("\n>>> [1/7] Tabela de Frequência – Escolaridade do Pai")
+    freq_pai = FrequencyTable(path_part, CAMPO_ESC_PAI)
+    freq_pai.execute(plot_type="bar")
+
+    # =================== [✅] FREQ. QUALITATIVA (Escolaridade da Mãe) =====================
+    print("\n>>> [1/7] Tabela de Frequência – Escolaridade da Mãe")
+    freq_mae = FrequencyTable(path_part, CAMPO_ESC_MAE)
+    freq_mae.execute(plot_type="bar")
+
+    # =================== [✅] FREQ. QUALITATIVA (Sexo) =====================
+    print("\n>>> [1/7] Tabela de Frequência – Sexo")
+    freq_sexo = FrequencyTable(path_part, CAMPO_SEXO)
+    freq_sexo.execute(plot_type="bar")
+
+    # =================== [✅] FREQ. QUALITATIVA (UF com Top 10) =====================
+    print("\n>>> [1/7] Tabela de Frequência – UF Prova (Top 10)")
+    freq_uf = FrequencyTable(path_part, CAMPO_UF, top_n=10)
+    freq_uf.execute(plot_type="bar")
+
+    # =================== [✅] FREQ. QUALITATIVA (Língua Estrangeira) =====================
+    print("\n>>> [1/7] Tabela de Frequência – Língua Estrangeira")
+    freq_lingua = FrequencyTable(path_result, "TP_LINGUA")
+    freq_lingua.execute(plot_type="bar")
 
     # =================== [2/7] FREQ. CONTÍNUA (Notas) =====================
     print("\n>>> [2/7] Tabela de Frequência Contínua – Notas")
@@ -55,7 +86,6 @@ def main():
 
     # UF (muitos valores → top 10)
     g.execute_qualitativas(CAMPO_UF, top_n=10)
-
 
     # Renda familiar
     g.execute_qualitativas(CAMPO_RENDA)
