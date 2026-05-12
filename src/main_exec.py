@@ -66,6 +66,11 @@ def main():
     freq_lingua = FrequencyTable(path_result, "TP_LINGUA")
     freq_lingua.execute(plot_type="bar")
 
+    # =================== [✅] FREQ. QUALITATIVA (Q007 - Horizontal) =====================
+    print("\n>>> [1/7] Tabela de Frequência – Q007 (Orientação Horizontal)")
+    freq_q007 = FrequencyTable(path_part, "Q007")
+    freq_q007.execute(plot_type="barh")
+
     # =================== [2/7] FREQ. CONTÍNUA (Notas) =====================
     print("\n>>> [2/7] Tabela de Frequência Contínua – Notas")
     for nota in NOTAS_FIELDS:

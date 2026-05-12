@@ -117,7 +117,7 @@ class FrequencyTable:
             ax.grid(axis="y", alpha=0.3)
 
         elif plot_type == "barh":
-            freq_percentage.plot(kind="barh", ax=ax, color="coral")
+            freq_percentage.plot(kind="barh", ax=ax, color="steelblue")
             ax.set_title(
                 f"Frequência - {', '.join(self.fields)}", fontsize=14, fontweight="bold"
             )
