@@ -117,13 +117,29 @@ class FrequencyTable:
             ax.grid(axis="y", alpha=0.3)
 
         elif plot_type == "barh":
-            freq_percentage.plot(kind="barh", ax=ax, color="steelblue")
+            bars = ax.barh(
+                freq_percentage.index.astype(str),
+                freq_percentage.values,
+                color="steelblue",
+                edgecolor="white",
+            )
             ax.set_title(
                 f"Frequência - {', '.join(self.fields)}", fontsize=14, fontweight="bold"
             )
             ax.set_xlabel("Percentual (%)", fontsize=12)
             ax.set_ylabel("Valores", fontsize=12)
             ax.grid(axis="x", alpha=0.3)
+
+            # Adicionar rótulos de percentual no fim das barras
+            for bar, val in zip(bars, freq_percentage.values):
+                ax.text(
+                    bar.get_width() + 0.3,
+                    bar.get_y() + bar.get_height() / 2,
+                    f"{val:.2f}%",
+                    va="center",
+                    fontsize=9,
+                    fontweight="bold",
+                )
 
         elif plot_type == "pie":
             freq_percentage.plot(kind="pie", ax=ax, autopct="%1.1f%%")

@@ -44,12 +44,12 @@ def main():
     # =================== [✅] FREQ. QUALITATIVA (Escolaridade do Pai) =====================
     print("\n>>> [1/7] Tabela de Frequência – Escolaridade do Pai")
     freq_pai = FrequencyTable(path_part, CAMPO_ESC_PAI)
-    freq_pai.execute(plot_type="bar")
+    freq_pai.execute(plot_type="barh")
 
     # =================== [✅] FREQ. QUALITATIVA (Escolaridade da Mãe) =====================
     print("\n>>> [1/7] Tabela de Frequência – Escolaridade da Mãe")
     freq_mae = FrequencyTable(path_part, CAMPO_ESC_MAE)
-    freq_mae.execute(plot_type="bar")
+    freq_mae.execute(plot_type="barh")
 
     # =================== [✅] FREQ. QUALITATIVA (Sexo) =====================
     print("\n>>> [1/7] Tabela de Frequência – Sexo")
