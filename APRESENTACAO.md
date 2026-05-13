@@ -91,8 +91,8 @@ Apresentar **factualmente**, sem julgar:
 |---|---|---|
 | **Qualitativa** | Nominal | `SG_UF_PROVA` (UF), `TP_LINGUA` (língua estrangeira), `TP_SEXO` |
 | **Qualitativa** | Ordinal | `Q001`/`Q002` (escolaridade pai/mãe), `Q006` (renda familiar) |
-| **Quantitativa** | Discreta | `TP_FAIXA_ETARIA`, nº de pessoas na residência (`Q005`) |
-| **Quantitativa** | Contínua | `NU_NOTA_CN`, `NU_NOTA_CH`, `NU_NOTA_LC`, `NU_NOTA_MT`, `NU_NOTA_REDACAO` |
+| **Quantitativa** | Discreta | `TP_FAIXA_ETARIA`, `NU_NOTA_REDACAO` |
+| **Quantitativa** | Contínua | `NU_NOTA_CN`, `NU_NOTA_CH`, `NU_NOTA_LC`, `NU_NOTA_MT` |
 
 ### Slide 9 — Checklist das análises realizadas
 Listar (do README) o que será mostrado nos próximos blocos:
